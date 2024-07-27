@@ -36,10 +36,10 @@ async def get_actor( nombre_actor ):
     cantPeli= castDf.loc[castDf['name']==nombre_actor,['index']].count().iloc[0]
     promedio=castDf.loc[castDf['name']==nombre_actor,['revenue']].mean().iloc[0]
     return str(retornoTotal),str(cantPeli),str(promedio),str(castDf.loc[castDf['name']==nombre_actor,['revenue','name','original_title','index']])
-"""
-
 
 @app.get("/get_director")
 async def get_director( nombre_director ):
     exito=crewDf.loc[(crewDf['name']==nombre_director) & (crewDf['job']=='Director') ,['revenue']].sum().iloc[0]
     return str(exito),crewDf.loc[(crewDf['name']==nombre_director) & (crewDf['job']=='Director') ,['original_title','release_date','revenue','budget','job']]
+
+"""
