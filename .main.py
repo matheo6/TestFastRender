@@ -1,7 +1,7 @@
 import pandas as pd 
 from fastapi import FastAPI
 app = FastAPI()
-
+"""
 castDf=pd.read_parquet('cleancastDataframe.parquet.gzip')
 crewDf=pd.read_parquet('cleanCrewDataframe.parquet.gzip')
 movieDf=pd.read_parquet('cleanMovieDataframe.parquet.gzip')
@@ -36,6 +36,7 @@ async def get_actor( nombre_actor ):
     cantPeli= castDf.loc[castDf['name']==nombre_actor,['index']].count().iloc[0]
     promedio=castDf.loc[castDf['name']==nombre_actor,['revenue']].mean().iloc[0]
     return str(retornoTotal),str(cantPeli),str(promedio),str(castDf.loc[castDf['name']==nombre_actor,['revenue','name','original_title','index']])
+"""
 
 
 @app.get("/get_director")
